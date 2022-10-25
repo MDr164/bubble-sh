@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":semanticCommits"],
+  "ignoreDeps": ["go"],
+  "constraints": {
+    "go": "1.19"
+  },
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "prBodyTemplate": "{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}"
+}
