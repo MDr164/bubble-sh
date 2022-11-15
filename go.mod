@@ -3,7 +3,7 @@ module github.com/MDr164/bubble-sh
 go 1.19
 
 require (
-	github.com/charmbracelet/bubbletea v0.22.2-0.20221007125427-0e76ba142aa1
+	github.com/charmbracelet/bubbletea v0.23.1
 	github.com/knz/bubbline v0.0.0-20221021140526-ccc326758a3f
 	golang.org/x/term v0.1.0
 	mvdan.cc/sh/v3 v3.5.1
