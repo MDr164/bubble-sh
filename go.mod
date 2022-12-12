@@ -5,8 +5,8 @@ go 1.19
 require (
 	github.com/charmbracelet/bubbletea v0.22.2-0.20221007125427-0e76ba142aa1
 	github.com/knz/bubbline v0.0.0-20221021140526-ccc326758a3f
-	golang.org/x/term v0.1.0
-	mvdan.cc/sh/v3 v3.5.1
+	golang.org/x/term v0.3.0
+	mvdan.cc/sh/v3 v3.6.0
 )
 
 require (
@@ -25,7 +25,7 @@ require (
 	github.com/muesli/termenv v0.13.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/sahilm/fuzzy v0.1.0 // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
-	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
+	golang.org/x/sync v0.1.0 // indirect
+	golang.org/x/sys v0.3.0 // indirect
 	golang.org/x/text v0.3.7 // indirect
 )
