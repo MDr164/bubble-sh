@@ -13,26 +13,21 @@ import (
 
 	"golang.org/x/term"
 
-	"github.com/MDr164/bubble-sh/completer"
-	tea "github.com/charmbracelet/bubbletea"
 	"github.com/knz/bubbline"
-	"github.com/knz/bubbline/editline"
 
 	"mvdan.cc/sh/v3/interp"
 	"mvdan.cc/sh/v3/syntax"
 )
 
-type shell struct{}
+const HISTFILE = "/tmp/bubble-sh.history"
 
 func main() {
 	flag.Parse()
 
-	sh := shell{}
+	err := run(flag.NArg())
 
-	err := sh.runAll(flag.NArg())
-
-	if e, ok := interp.IsExitStatus(err); ok {
-		os.Exit(int(e))
+	if status, ok := interp.IsExitStatus(err); ok {
+		os.Exit(int(status))
 	}
 
 	if err != nil {
@@ -41,89 +36,95 @@ func main() {
 	}
 }
 
-func (s shell) runAll(narg int) error {
-	r, err := interp.New(interp.StdIO(os.Stdin, os.Stdout, os.Stderr))
+func run(narg int) error {
+	runner, err := interp.New(interp.StdIO(os.Stdin, os.Stdout, os.Stderr))
 	if err != nil {
 		return err
 	}
 
 	if narg > 0 {
-		return s.run(r, strings.NewReader(strings.Join(flag.Args(), " ")), "")
+		args := flag.Args()
+
+		return runCmd(runner, strings.NewReader(strings.Join(args, " ")), args[0])
 	}
 
 	if narg == 0 {
 		if term.IsTerminal(int(os.Stdin.Fd())) {
-			s.runInteractive(r, os.Stdin, os.Stdout)
-		} else {
-			return s.run(r, os.Stdin, "")
+			return runInteractive(runner)
 		}
+
+		return runCmd(runner, os.Stdin, "")
 	}
 
 	return nil
 }
 
-func (s shell) run(r *interp.Runner, reader io.Reader, name string) error {
-	prog, err := syntax.NewParser().Parse(reader, name)
+func runCmd(runner *interp.Runner, command io.Reader, name string) error {
+	prog, err := syntax.NewParser().Parse(command, name)
 	if err != nil {
 		return err
 	}
 
-	r.Reset()
+	runner.Reset()
 
-	return r.Run(context.Background(), prog)
+	return runner.Run(context.Background(), prog)
 }
 
-func (s shell) runInteractive(r *interp.Runner, stdin io.Reader, stdout io.Writer) error {
+func runInteractive(runner *interp.Runner) error {
 	parser := syntax.NewParser()
-	input := editline.New(80, 25)
-	input.AutoComplete = completer.Autocomplete
+	input := bubbline.New()
+
+	if err := input.LoadHistory(HISTFILE); err != nil {
+		return err
+	}
+
+	input.SetAutoSaveHistory(HISTFILE, true)
+
+	input.AutoComplete = autocomplete
 
 	var runErr error
 
 	for {
 		if runErr != nil {
-			fmt.Fprintf(stdout, "error: %v", runErr)
+			fmt.Fprintf(os.Stdout, "error: %s\n", runErr.Error())
+			runErr = nil
 		}
 
-		input.Reset()
+		line, err := input.GetLine()
 
-		if err := tea.NewProgram(input).Start(); err != nil {
-			return err
-		}
-
-		if input.Err != nil {
-			if input.Err == io.EOF {
+		if err != nil {
+			if err == io.EOF {
 				break
 			}
-			if errors.Is(input.Err, bubbline.ErrInterrupted) {
-				fmt.Fprintf(stdout, "^C")
+			if errors.Is(err, bubbline.ErrInterrupted) {
+				fmt.Fprintf(os.Stdout, "^C\n")
 			} else {
-				fmt.Fprintf(stdout, "error: %v", input.Err)
+				fmt.Fprintf(os.Stderr, "error: %s\n", err.Error())
 			}
 			continue
 		}
 
-		in := input.Value()
-
-		if in == "exit" {
+		if line == "exit" {
 			break
 		}
 
-		if err := parser.Stmts(strings.NewReader(in), func(stmt *syntax.Stmt) bool {
+		if err := parser.Stmts(strings.NewReader(line), func(stmt *syntax.Stmt) bool {
 			if parser.Incomplete() {
-				fmt.Fprintf(stdout, "> ")
+				fmt.Fprintf(os.Stdout, "-> ")
 
 				return true
 			}
 
-			runErr = r.Run(context.Background(), stmt)
+			runErr = runner.Run(context.Background(), stmt)
 
-			return !r.Exited()
+			return !runner.Exited()
 		}); err != nil {
-			fmt.Fprintf(stdout, "error: %v", err)
+			fmt.Fprintf(os.Stderr, "error: %s\n", err.Error())
 		}
 
-		input.AddHistoryEntry(in)
+		if line != "" {
+			input.AddHistory(line)
+		}
 	}
 
 	return nil
