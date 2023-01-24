@@ -3,7 +3,7 @@ module github.com/MDr164/bubble-sh
 go 1.19
 
 require (
-	github.com/knz/bubbline v0.0.0-20221212162141-945aa5519a47
+	github.com/knz/bubbline v0.0.0-20230124184034-a0b62576595b
 	golang.org/x/term v0.4.0
 	mvdan.cc/sh/v3 v3.6.0
 )
@@ -11,7 +11,7 @@ require (
 require (
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aymanbagabas/go-osc52 v1.2.1 // indirect
-	github.com/charmbracelet/bubbles v0.15.0 // indirect
+	github.com/charmbracelet/bubbles v0.15.1-0.20230123181021-a6a12c4a31eb // indirect
 	github.com/charmbracelet/bubbletea v0.23.1 // indirect
 	github.com/charmbracelet/lipgloss v0.6.0 // indirect
 	github.com/containerd/console v1.0.3 // indirect

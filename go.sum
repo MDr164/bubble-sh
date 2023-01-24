@@ -4,12 +4,9 @@ github.com/aymanbagabas/go-osc52 v1.0.3/go.mod h1:zT8H+Rk4VSabYN90pWyugflM3ZhpTZ
 github.com/aymanbagabas/go-osc52 v1.2.1 h1:q2sWUyDcozPLcLabEMd+a+7Ea2DitxZVN9hTxab9L4E=
 github.com/aymanbagabas/go-osc52 v1.2.1/go.mod h1:zT8H+Rk4VSabYN90pWyugflM3ZhpTZNC7cASDfUCdT4=
 github.com/charmbracelet/bubbles v0.13.0/go.mod h1:bbeTiXwPww4M031aGi8UK2HT9RDWoiNibae+1yCMtcc=
-github.com/charmbracelet/bubbles v0.14.1-0.20221007152719-9a48dca00354 h1:RtCsAwzKHsaF/Jps0/1CcBeu6OY6aZV/L0KhD0GYmQY=
-github.com/charmbracelet/bubbles v0.14.1-0.20221007152719-9a48dca00354/go.mod h1:5rZgJTHmgWISQnxnzzIJtQt3GC1bfJfNmr4SEtRDtTQ=
-github.com/charmbracelet/bubbles v0.15.0 h1:c5vZ3woHV5W2b8YZI1q7v4ZNQaPetfHuoHzx+56Z6TI=
-github.com/charmbracelet/bubbles v0.15.0/go.mod h1:Y7gSFbBzlMpUDR/XM9MhZI374Q+1p1kluf1uLl8iK74=
+github.com/charmbracelet/bubbles v0.15.1-0.20230123181021-a6a12c4a31eb h1:OYmHuDqyuzWwiurw7eeYJ2482BENoX3hScpzamwF5K8=
+github.com/charmbracelet/bubbles v0.15.1-0.20230123181021-a6a12c4a31eb/go.mod h1:Y7gSFbBzlMpUDR/XM9MhZI374Q+1p1kluf1uLl8iK74=
 github.com/charmbracelet/bubbletea v0.21.0/go.mod h1:GgmJMec61d08zXsOhqRC/AiOx4K4pmz+VIcRIm1FKr4=
-github.com/charmbracelet/bubbletea v0.22.1/go.mod h1:8/7hVvbPN6ZZPkczLiB8YpLkLJ0n7DMho5Wvfd2X1C0=
 github.com/charmbracelet/bubbletea v0.22.2-0.20220830200705-989d49f3e69f/go.mod h1:8/7hVvbPN6ZZPkczLiB8YpLkLJ0n7DMho5Wvfd2X1C0=
 github.com/charmbracelet/bubbletea v0.23.1 h1:CYdteX1wCiCzKNUlwm25ZHBIc1GXlYFyUIte8WPvhck=
 github.com/charmbracelet/bubbletea v0.23.1/go.mod h1:JAfGK/3/pPKHTnAS8JIE2u9f61BjWTQY57RbT25aMXU=
@@ -25,8 +22,8 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/creack/pty v1.1.18 h1:n56/Zwd5o6whRC5PMGretI4IdRLlmBXYNjScPaBgsbY=
 github.com/frankban/quicktest v1.14.4 h1:g2rn0vABPOOXmZUj+vbmUp0lPoXEMuhTpIluN0XL9UY=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
-github.com/knz/bubbline v0.0.0-20221212162141-945aa5519a47 h1:OHAQ85nbzGTan35JQJMhyNH691k957PX97kVRfs4lfo=
-github.com/knz/bubbline v0.0.0-20221212162141-945aa5519a47/go.mod h1:CjXCchXeNBPWeIOZ/MznJKX3wWXu38Wb+tcU342QvOo=
+github.com/knz/bubbline v0.0.0-20230124184034-a0b62576595b h1:WkDRZUJ4jwXPpiwaprlozeoL2nULKk2BUW+7cc8MYLg=
+github.com/knz/bubbline v0.0.0-20230124184034-a0b62576595b/go.mod h1:6A+ujZMesdx26uaMRz53ka0gtDTytz5+LXMxJefmUY0=
 github.com/knz/catwalk v0.1.2 h1:sNLvF6WOXdvedeiCpqkpsHSGavOYxZwDsgdbKiu1IOc=
 github.com/knz/catwalk v0.1.2/go.mod h1:Q+Yj4ny4AXgrOOyWyDGY/HJzmbGH8MFnsUqvCAiUT5s=
 github.com/knz/lipgloss-convert v0.1.0 h1:qUPUt6r8mqvi9DIV3nBPu3kEmFyHrZtXzv0BlPBPLNQ=
