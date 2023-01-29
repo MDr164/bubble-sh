@@ -72,7 +72,7 @@ func filepathCompleter(input string, col, wstart, wend int) (msg string, complet
 
 	for _, entry := range entries {
 		if trail == "" || strings.Contains(entry.Name(), trail) {
-			candidates = append(candidates, entry.Name())
+			candidates = append(candidates, filepath.Join(path, entry.Name()))
 		}
 	}
 
