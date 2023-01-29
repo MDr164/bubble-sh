@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"os/signal"
 	"strings"
 
 	"golang.org/x/term"
@@ -84,6 +85,15 @@ func runInteractive(runner *interp.Runner) error {
 
 	var runErr error
 
+	// The following code is to intercept SIGINT signals
+	ch := make(chan os.Signal, 1)
+	signal.Notify(ch, os.Interrupt)
+	go func(ch chan os.Signal) {
+		for {
+			<-ch
+		}
+	}(ch)
+
 	for {
 		if runErr != nil {
 			fmt.Fprintf(os.Stdout, "error: %s\n", runErr.Error())
@@ -94,7 +104,7 @@ func runInteractive(runner *interp.Runner) error {
 
 		if err != nil {
 			if err == io.EOF {
-				break
+				break // maybe we should continue instead of break
 			}
 			if errors.Is(err, bubbline.ErrInterrupted) {
 				fmt.Fprintf(os.Stdout, "^C\n")
@@ -106,6 +116,10 @@ func runInteractive(runner *interp.Runner) error {
 
 		if line == "exit" {
 			break
+		}
+
+		if line != "" {
+			input.AddHistory(line)
 		}
 
 		if err := parser.Stmts(strings.NewReader(line), func(stmt *syntax.Stmt) bool {
@@ -120,10 +134,6 @@ func runInteractive(runner *interp.Runner) error {
 			return !runner.Exited()
 		}); err != nil {
 			fmt.Fprintf(os.Stderr, "error: %s\n", err.Error())
-		}
-
-		if line != "" {
-			input.AddHistory(line)
 		}
 	}
 
