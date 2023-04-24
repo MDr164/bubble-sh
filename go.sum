@@ -22,10 +22,10 @@ github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ3
 github.com/creack/pty v1.1.18 h1:n56/Zwd5o6whRC5PMGretI4IdRLlmBXYNjScPaBgsbY=
 github.com/frankban/quicktest v1.14.4 h1:g2rn0vABPOOXmZUj+vbmUp0lPoXEMuhTpIluN0XL9UY=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
-github.com/knz/bubbline v0.0.0-20230124184034-a0b62576595b h1:WkDRZUJ4jwXPpiwaprlozeoL2nULKk2BUW+7cc8MYLg=
-github.com/knz/bubbline v0.0.0-20230124184034-a0b62576595b/go.mod h1:6A+ujZMesdx26uaMRz53ka0gtDTytz5+LXMxJefmUY0=
-github.com/knz/catwalk v0.1.2 h1:sNLvF6WOXdvedeiCpqkpsHSGavOYxZwDsgdbKiu1IOc=
-github.com/knz/catwalk v0.1.2/go.mod h1:Q+Yj4ny4AXgrOOyWyDGY/HJzmbGH8MFnsUqvCAiUT5s=
+github.com/knz/bubbline v0.0.0-20230422210153-e176cdfe1c43 h1:uhwfuoL9LDMUGlxcs3Rbt35L3YoqGUd+YWgaL9EFl0A=
+github.com/knz/bubbline v0.0.0-20230422210153-e176cdfe1c43/go.mod h1:ucXvyrucVy4jp/4afdKWNW1TVO73GMI72VNINzyT678=
+github.com/knz/catwalk v0.1.4 h1:GgCxHbPp+nzyZBJcNL/CJd1aba4ACoeuI1lnsshAPkY=
+github.com/knz/catwalk v0.1.4/go.mod h1:Q+Yj4ny4AXgrOOyWyDGY/HJzmbGH8MFnsUqvCAiUT5s=
 github.com/knz/lipgloss-convert v0.1.0 h1:qUPUt6r8mqvi9DIV3nBPu3kEmFyHrZtXzv0BlPBPLNQ=
 github.com/knz/lipgloss-convert v0.1.0/go.mod h1:S14GmtoiW/VAHqB7xEzuZOt0/G6GQ2dfjJN0fHpm30Q=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
