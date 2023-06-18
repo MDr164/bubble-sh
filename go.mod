@@ -4,8 +4,8 @@ go 1.19
 
 require (
 	github.com/knz/bubbline v0.0.0-20230422210153-e176cdfe1c43
-	golang.org/x/term v0.7.0
-	mvdan.cc/sh/v3 v3.6.0
+	golang.org/x/term v0.8.0
+	mvdan.cc/sh/v3 v3.7.0
 )
 
 require (
@@ -25,7 +25,7 @@ require (
 	github.com/muesli/termenv v0.13.0 // indirect
 	github.com/rivo/uniseg v0.4.3 // indirect
 	github.com/sahilm/fuzzy v0.1.0 // indirect
-	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/sync v0.2.0 // indirect
+	golang.org/x/sys v0.8.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
 )
